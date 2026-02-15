@@ -1,5 +1,5 @@
 
-# Payslip Data Test
+# Payroll Data Test
 This is an automated python script that performs 8 unit tests. 
 The project folder has the following structure:
   - `test_payslip_data.py`
@@ -78,3 +78,4 @@ unit_test7:
  - `GTN.xlsx`
     changed cell value where employee_id=1000 and column=element4
 	new value is non-numerical => "Hello World"
+
