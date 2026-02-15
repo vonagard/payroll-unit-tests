@@ -53,29 +53,30 @@ All 8 unit tests will run and you'll see which checks pass or fail with error de
 
 ## File Modifications
 The files in each unit folder are modified as such:
-`unit_test1`: 
- - `GTN.xlsx` -> `GTN.csv`
- - `Payrun.xlsx` -> `Payrun.csv`
+ - `unit_test1`: 
+ 	- `GTN.xlsx` -> `GTN.csv`
+ 	- `Payrun.xlsx` -> `Payrun.csv`
    Note: Created a simple script to convert `.xlsx` => `.csv` but it is not in the project. 
          It is a simple pandas operation of reading an excel extension file and saving it as `.csv` file.
-`unit_test2`:
- - `GTN.xlsx` -> inserted 2 empty rows in the records
-`unit_test3`: 
- - `GTN.xlsx` -> inserted an additional header above the old header
-`unit_test4`:
- - `GTN.xlsx` -> removed employees - `1004`, `1014`, `1024`, `1034`
-`unit_test5`:
- - `Payrun.xlsx` -> removed employees - `1004`, `1014`, `1024`, `1034`
-`unit_test6`:
- - `Payrun.xlsx`
-    changed column: `Bonus` -> `Bonus1`
-    changed column: `Backpay` -> `Backpay1`
-unit_test7:
- - `GTN.xlsx`
-    changed column: `element4` -> `element44`
-    changed column: `element9` -> `element99`
-`unit_test8`:
- - `GTN.xlsx`
-    changed cell value where employee_id=1000 and column=element4
-	new value is non-numerical => "Hello World"
+ - `unit_test2`:
+ 	- `GTN.xlsx` -> inserted 2 empty rows in the records
+ - `unit_test3`: 
+ 	- `GTN.xlsx` -> inserted an additional header above the old header
+ - `unit_test4`:
+ 	- `GTN.xlsx` -> removed employees - `1004`, `1014`, `1024`, `1034`
+ - `unit_test5`:
+ 	- `Payrun.xlsx` -> removed employees - `1004`, `1014`, `1024`, `1034`
+ - `unit_test6`:
+ 	- `Payrun.xlsx`
+    	changed column: `Bonus` -> `Bonus1`
+    	changed column: `Backpay` -> `Backpay1`
+ - `unit_test7`:
+	- `GTN.xlsx`
+    	changed column: `element4` -> `element44`
+    	changed column: `element9` -> `element99`
+ - `unit_test8`:
+ 	- `GTN.xlsx`
+    	changed cell value where employee_id=1000 and column=element4
+		new value is non-numerical => "Hello World"
+
 
