@@ -10,13 +10,6 @@ UNIT_TEST_FOLDERS = [
     ]
 ]
 
-def find_file(folder, name):
-    for file in Path(folder).iterdir():
-        if file.is_file() and file.stem.lower() == name:
-            return file
-    return None
-
-
 def is_excel_file(path):
     return getattr(path, "suffix", "").lower() in {".xlsx", ".xls", ".xlsm"}
 
@@ -168,3 +161,4 @@ def test_if_numeric(folder):
             pytest.fail(f"Pay Element column '{element}' not found in GTN file.")
         non_numeric = gtn_df[element][~gtn_df[element].apply(lambda x: pd.isnull(x) or isinstance(x, (int, float)))]
         assert non_numeric.empty, f"The column '{element}' in GTN file contains non-numeric values: {non_numeric.tolist()}"
+
