@@ -4,11 +4,11 @@ This is an automated python script that performs 8 unit tests.
 The project folder has the following structure:
   - `test_payslip_data.py`
   - `\tests`
-         `\valid_data`
-         `\unit_test1`
-         `\unit_test2`
+         - `\valid_data`
+         - `\unit_test1`
+         - `\unit_test2`
          ...
-         `\unit_test8`
+         - `\unit_test8`
   - `requirements.txt`
   - `README.md`
 
@@ -78,5 +78,6 @@ The files in each unit folder are modified as such:
  	- `GTN.xlsx`
     	changed cell value where employee_id=1000 and column=element4
 		new value is non-numerical => "Hello World"
+
 
 
