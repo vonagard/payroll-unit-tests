@@ -10,10 +10,6 @@ UNIT_TEST_FOLDERS = [
     ]
 ]
 
-def is_excel_file(path):
-    return getattr(path, "suffix", "").lower() in {".xlsx", ".xls", ".xlsm"}
-
-
 def load_test_files(folder):
     folder_path = Path(folder)
     output_files = []
@@ -40,13 +36,13 @@ def load_test_files(folder):
     except Exception as e:
         pytest.fail(f"Failed to load mapping.json in {folder}. Error: {e}")
 
-
     return output_files  # Order of return: [GTN.xlsx, Payrun.xlsx, mapping.json]
-
 
 # Employee ID key map -> GTN[0], Payrun[1]
 employee_id_mapping = ["employee_id", "Employee ID"]
 
+
+def is_excel_file(path): return getattr(path, "suffix", "").lower() in {".xlsx", ".xls", ".xlsm"}
 
 ####  Unit Test 1: Check if GTN file is an Excel file  ####
 @pytest.mark.parametrize("folder", UNIT_TEST_FOLDERS)
@@ -103,12 +99,9 @@ def test_employees_in_payrun(folder):
     def normalize_id(id_value):
         if pd.isnull(id_value): 
             return None
-        
         str_id_value = str(id_value).strip()
-
         if not str_id_value or str_id_value.lower() == 'nan': 
-            return None
-        
+            return None  
         return str_id_value[:-2] if str_id_value.endswith('.0') else str_id_value
     
     payrun_ids = set(filter(None, map(normalize_id, payrun_df[col_tuple_payrun].to_list()))) if col_tuple_payrun else set()
@@ -161,4 +154,3 @@ def test_if_numeric(folder):
             pytest.fail(f"Pay Element column '{element}' not found in GTN file.")
         non_numeric = gtn_df[element][~gtn_df[element].apply(lambda x: pd.isnull(x) or isinstance(x, (int, float)))]
         assert non_numeric.empty, f"The column '{element}' in GTN file contains non-numeric values: {non_numeric.tolist()}"
-
